@@ -207,6 +207,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         rCount.innerHTML = "R";
         sCount.innerHTML = "S";
         sendParameters(parameters);
+        clearSourceMixChart();
+        clearSkillGapChart();
     });
 
     // Framework Selection
@@ -597,6 +599,11 @@ const updateSourceMixChart = (smix) => {
     let external = smix.E;
     let notmoved = smix.U;
     smixChart.data.datasets[0].data = [internal, external, notmoved];
+    smixChart.update();
+};
+
+const clearSourceMixChart = () => {
+    smixChart.data.datasets[0].data = [0.0, 0.0, 0.0];
     smixChart.update();
 };
 
